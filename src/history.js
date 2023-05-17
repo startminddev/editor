@@ -26,5 +26,5 @@ inputField.addEventListener("keydown", (event) => {
     }
   });
   
-  output("Welcome! =)");
+  output("Welcome Dev! =)");
   inputField.focus();
