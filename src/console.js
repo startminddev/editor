@@ -2,6 +2,10 @@ const cleaneditor = document.getElementById('editor');
 const consoleDiv = document.querySelector(".console");
 const inputField = consoleDiv.querySelector(".console-input");
 const outputField = consoleDiv.querySelector(".console-body");
+const previewResult = document.getElementById('preview-result');
+const consoleLog = document.getElementById('console');
+const editor = document.getElementById('editor');
+
 const commandHistory = [];
 let commandIndex = -1;
 
@@ -32,6 +36,7 @@ function autocomplete() {
     "supportcreator",
     "hoteltmp",
     "cleaneditor",
+    "preview",
   ];
 
   const matchingCommands = commands.filter((command) =>
@@ -71,7 +76,7 @@ function executeCommand(command) {
       break;
 
     case "help":
-      message = "Command List: editortemp, hoteltmp, slotstmp, supportcreator, clear, time, date, echo, calc, length, shtmltemp, mhtmltemp, xlhtmltemp, keyboard, cleaneditor...(and some hidden)";
+      message = "Command List: editortemp, hoteltmp, slotstmp, supportcreator, preview, clear, time, date, echo, calc, length, shtmltemp, mhtmltemp, xlhtmltemp, keyboard, cleaneditor...(and some hidden)";
       break;
 
     case "cleaneditor":
