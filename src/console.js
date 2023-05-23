@@ -141,9 +141,39 @@ function processCommand(command) {
     copyToClipboard(tableCode);
     logToConsole('tabla copiado al portapapeles.');
   } else if (command === 'modal') { // Comando para generar código de modal o ventana emergente
-    const modalCode = `<div class="modal">
-      <!-- Contenido del modal -->
-    </div>`;
+    const modalCode = `<button id="modalButton" class="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    Botón
+  </button>
+  
+  <div id="modal" class="modal hidden fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+    <div class="modal-content bg-white rounded-lg p-6">
+      <h2 class="text-2xl font-bold mb-4">Título del Modal</h2>
+      <p>Contenido del modal...</p>
+      <button id="closeModal" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Cerrar</button>
+    </div>
+  </div>
+  
+  <script>
+    // Obtener referencias a los elementos del DOM
+    const modalButton = document.getElementById('modalButton');
+    const modal = document.getElementById('modal');
+    const closeModal = document.getElementById('closeModal');
+  
+    // Función para abrir el modal
+    const openModal = () => {
+      modal.classList.remove('hidden');
+    };
+  
+    // Función para cerrar el modal
+    const closeModalHandler = () => {
+      modal.classList.add('hidden');
+    };
+  
+    // Asignar eventos a los botones
+    modalButton.addEventListener('click', openModal);
+    closeModal.addEventListener('click', closeModalHandler);
+  </script>
+  `;
     copyToClipboard(modalCode);
     logToConsole('modal copiado al portapapeles.');
   } else if (command === 'formato_fecha') { // Comando para generar código de formato de fecha
